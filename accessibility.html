@@ -1,1 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility Statement | SEO Experts Denver</title>
+  <meta name="description" content="Accessibility statement for SEO Experts Denver — our commitment to making this website usable for all visitors, including those using assistive technologies." />
+  <link rel="canonical" href="https://www.seoexpertsdenver.com/accessibility.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d1f3c; --blue: #0077e6; --sky: #29adf4; --sky-mid: #e2f2fc;
+      --sky-light: #f0f8ff; --teal: #00c2cb; --white: #ffffff; --off-white: #f6f9fc;
+      --gray-100: #edf1f7; --gray-300: #c5cfe0; --gray-500: #6b7a99; --gray-700: #3a4a6b;
+      --text: #1b2a45; --radius: 10px; --radius-lg: 18px;
+      --shadow: 0 4px 24px rgba(0,80,180,.09); --ease: .22s cubic-bezier(.4,0,.2,1);
+      --head: 'Syne', sans-serif; --body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--body); font-size: 1rem; line-height: 1.75; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: var(--blue); text-decoration: none; transition: color var(--ease); }
+    a:hover { color: var(--sky); }
+    p { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+    h1,h2,h3 { font-family: var(--head); line-height: 1.22; color: var(--navy); }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 1rem; }
+    h2 { font-size: 1.3rem; font-weight: 700; margin: 2rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--gray-100); }
+    h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+    .skip-link { position: absolute; top: -100px; left: 1rem; z-index: 1000; background: var(--blue); color: #fff; padding: .5rem 1rem; border-radius: var(--radius); font-weight: 600; transition: top .2s; }
+    .skip-link:focus { top: .75rem; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--navy); box-shadow: 0 2px 16px rgba(0,0,0,.22); }
+    .header-inner { display: flex; align-items: center; gap: 1.5rem; padding: .85rem 0; }
+    .logo-text { font-family: var(--head); font-size: 1.22rem; font-weight: 800; color: #fff; white-space: nowrap; }
+    .logo-accent { color: var(--sky); }
+    .logo-wrap a { text-decoration: none; }
+    .main-nav { flex: 1; }
+    .nav-list { list-style: none; display: flex; gap: .2rem; align-items: center; }
+    .nav-link { font-size: .87rem; font-weight: 500; color: rgba(255,255,255,.8); padding: .45rem .8rem; border-radius: 6px; transition: background var(--ease), color var(--ease); }
+    .nav-link:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .has-dropdown { position: relative; }
+    .dropdown { display: none; position: absolute; top: calc(100% + .6rem); left: 0; background: #fff; border-radius: var(--radius); min-width: 250px; box-shadow: 0 10px 50px rgba(0,80,180,.15); list-style: none; overflow: hidden; border: 1px solid var(--gray-100); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown li a { display: block; padding: .65rem 1.1rem; font-size: .87rem; color: var(--gray-700); font-weight: 500; transition: background var(--ease), color var(--ease); }
+    .dropdown li a:hover { background: var(--sky-mid); color: var(--blue); }
+    .header-cta { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .header-phone { font-weight: 700; font-size: .87rem; color: var(--sky) !important; display: flex; align-items: center; gap: .4rem; white-space: nowrap; }
+    .header-phone:hover { color: #fff !important; }
+    .btn { display: inline-flex; align-items: center; font-family: var(--body); font-weight: 600; font-size: .875rem; padding: .5rem 1.25rem; border-radius: 50px; border: 2px solid transparent; cursor: pointer; text-decoration: none; transition: background var(--ease), color var(--ease), transform var(--ease); }
+    .btn-primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .btn-primary:hover { background: #005bbf; color: #fff; transform: translateY(-2px); }
+    .mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .4rem; margin-left: auto; }
+    .mobile-toggle span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform .2s, opacity .2s; }
+
+    /* Breadcrumb */
+    .breadcrumb { padding: 1rem 0; background: var(--off-white); border-bottom: 1px solid var(--gray-100); }
+    .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; font-size: .84rem; color: var(--gray-500); }
+    .breadcrumb li + li::before { content: "›"; margin-right: .4rem; color: var(--gray-300); }
+    .breadcrumb a { color: var(--blue); }
+    .breadcrumb [aria-current] { color: var(--gray-700); font-weight: 500; }
+
+    /* Page hero */
+    .page-hero { background: linear-gradient(155deg, #c5e8fa 0%, #ddf1fd 40%, #f5fbff 100%); padding: 3.5rem 0 3rem; border-bottom: 1px solid var(--gray-100); }
+    .page-label { display: inline-block; font-size: .76rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; color: var(--sky); margin-bottom: .6rem; }
+
+    /* Content */
+    .content-wrap { max-width: 760px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
+    .content-wrap p { color: var(--gray-700); }
+    .content-wrap ul { margin: .75rem 0 1.25rem 1.5rem; color: var(--gray-700); }
+    .content-wrap li { margin-bottom: .45rem; line-height: 1.7; }
+    .content-wrap a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .last-updated { display: inline-block; font-size: .82rem; color: var(--gray-500); margin-bottom: 2rem; }
+
+    /* Footer */
+    .site-footer { background: var(--navy); color: rgba(255,255,255,.75); padding: 4rem 0 2rem; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 2rem; }
+    .foot-logo { font-family: var(--head); font-size: 1.3rem; font-weight: 800; color: #fff; }
+    .foot-tagline { font-size: .86rem; color: rgba(255,255,255,.5); margin: .7rem 0 1rem; line-height: 1.6; }
+    .foot-phone { color: var(--sky) !important; font-weight: 700; font-size: .97rem; }
+    .foot-phone:hover { color: #fff !important; }
+    .foot-heading { font-family: var(--head); font-size: .74rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.38); margin-bottom: 1rem; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .foot-links a { font-size: .86rem; color: rgba(255,255,255,.58); transition: color var(--ease); }
+    .foot-links a:hover { color: #fff; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: .8rem; color: rgba(255,255,255,.36); }
+    .footer-powered a { color: rgba(255,255,255,.5); text-decoration: underline; }
+    .footer-powered a:hover { color: #fff; }
+
+    @media (max-width: 768px) {
+      .main-nav, .header-cta .btn-primary { display: none; }
+      .mobile-toggle { display: flex; }
+      .header-phone { font-size: .82rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <div class="logo-wrap">
+      <a href="/" aria-label="SEO Experts Denver Home">
+        <span class="logo-text">SEO<span class="logo-accent">Experts</span>Denver</span>
+      </a>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-link">Learn SEO ▾</a>
+          <ul class="dropdown">
+            <li><a href="/what-is-seo-denver.html">What Is SEO?</a></li>
+            <li><a href="/generative-engine-optimization.html">What Is GEO?</a></li>
+            <li><a href="/ai-seo-denver.html">How AI Is Changing SEO</a></li>
+            <li><a href="/how-long-does-seo-take.html">How Long Does SEO Take?</a></li>
+            <li><a href="/seo-cost-denver.html">SEO Cost in Denver</a></li>
+            <li><a href="/seo-mistakes-denver.html">SEO Mistakes to Avoid</a></li>
+          </ul>
+        </li>
+        <li><a href="/denver-seo-services.html" class="nav-link">Services</a></li>
+        <li><a href="/seo-faq-denver.html" class="nav-link">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:18004818638" class="header-phone">1-800-481-8638</a>
+      <a href="/denver-seo-services.html#contact" class="btn btn-primary">Free SEO Audit</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" id="mobileBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><span aria-current="page">Accessibility Statement</span></li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main-content">
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-label">Legal &amp; Trust</span>
+      <h1>Accessibility Statement</h1>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+    <span class="last-updated">Last updated: March 2026</span>
+
+    <h2>Our Commitment to Accessibility</h2>
+    <p>SEO Experts Denver, powered by Eye To Ad Media, is committed to making this website accessible to all visitors — including those who use assistive technologies such as screen readers, keyboard-only navigation, or other adaptive tools.</p>
+    <p>We believe that everyone deserves equal access to information. Accessibility is not an afterthought for us — it is part of how we build. This website has been designed and developed with accessibility standards in mind from the ground up.</p>
+
+    <h2>Standards We Follow</h2>
+    <p>We aim to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>, published by the World Wide Web Consortium (W3C). These guidelines explain how to make web content more accessible to people with disabilities.</p>
+    <p>Our implementation includes the following accessibility features:</p>
+    <ul>
+      <li>Semantic HTML5 markup throughout all pages</li>
+      <li>Skip-to-content link at the top of every page for keyboard users</li>
+      <li>All interactive elements are keyboard accessible and have visible focus states</li>
+      <li>Sufficient color contrast ratios on all text and background combinations</li>
+      <li>Descriptive alt text on all informative images</li>
+      <li>ARIA labels and roles on navigation, forms, and interactive components</li>
+      <li>Form fields have associated visible labels</li>
+      <li>Pages are structured with logical heading hierarchies (H1 through H4)</li>
+      <li>All pages are fully responsive and usable on mobile devices</li>
+      <li>Language declared on every page with the <code>lang</code> attribute</li>
+      <li>Live regions used for dynamic content updates (form status messages)</li>
+      <li>No content relies solely on color to convey meaning</li>
+      <li>No flashing or strobing content that could trigger photosensitive responses</li>
+    </ul>
+
+    <h2>Known Limitations</h2>
+    <p>While we strive for full WCAG 2.1 AA compliance, we acknowledge that some areas of this website may not yet fully meet all guidelines. We are actively working to identify and address any gaps. If you encounter an accessibility barrier, please let us know — your feedback helps us improve.</p>
+
+    <h2>Assistive Technology Compatibility</h2>
+    <p>This website is designed to be compatible with the following assistive technologies and browsers:</p>
+    <ul>
+      <li>Screen readers including NVDA, JAWS, VoiceOver (macOS and iOS), and TalkBack (Android)</li>
+      <li>Keyboard-only navigation in all modern browsers</li>
+      <li>Browser zoom up to 200% without loss of content or functionality</li>
+      <li>High contrast display modes on Windows and macOS</li>
+      <li>Text-only browsing environments</li>
+    </ul>
+
+    <h2>Feedback and Contact</h2>
+    <p>If you experience any difficulty accessing content on this website, or if you would like to report an accessibility issue, please contact us. We take all accessibility feedback seriously and aim to respond within 5 business days.</p>
+    <ul>
+      <li><strong>Phone:</strong> <a href="tel:18004818638">1-800-481-8638</a></li>
+      <li><strong>Website:</strong> <a href="/denver-seo-services.html#contact">Contact form</a></li>
+    </ul>
+    <p>When contacting us about an accessibility issue, please include the URL of the page you were visiting, a description of the problem you experienced, and the assistive technology or browser you were using. This information helps us diagnose and address the issue more effectively.</p>
+
+    <h2>Ongoing Improvement</h2>
+    <p>Accessibility is not a one-time project. We conduct periodic accessibility reviews and update our practices as guidelines evolve. We are committed to continuous improvement and welcome the input of users with disabilities in shaping a more accessible experience.</p>
+    <p>This statement was prepared in March 2026 and will be reviewed and updated at least annually.</p>
+  </div>
+</main>
+
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <span class="foot-logo">SEO<span style="color:var(--sky)">Experts</span>Denver</span>
+        <p class="foot-tagline">AI-optimized search strategy for Denver businesses that want to grow without paying for every click.</p>
+        <a href="tel:18004818638" class="foot-phone">1-800-481-8638</a>
+      </div>
+      <div>
+        <h4 class="foot-heading">Learn</h4>
+        <ul class="foot-links">
+          <li><a href="/what-is-seo-denver.html">What Is SEO?</a></li>
+          <li><a href="/generative-engine-optimization.html">What Is GEO?</a></li>
+          <li><a href="/ai-seo-denver.html">How AI Is Changing SEO</a></li>
+          <li><a href="/how-long-does-seo-take.html">How Long Does SEO Take?</a></li>
+          <li><a href="/seo-cost-denver.html">SEO Cost in Denver</a></li>
+          <li><a href="/seo-mistakes-denver.html">SEO Mistakes to Avoid</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="foot-heading">Services &amp; Help</h4>
+        <ul class="foot-links">
+          <li><a href="/denver-seo-services.html">Denver SEO Services</a></li>
+          <li><a href="/seo-faq-denver.html">SEO FAQ</a></li>
+          <li><a href="/denver-seo-services.html#contact">Free SEO Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="foot-heading">Legal</h4>
+        <ul class="foot-links">
+          <li><a href="/accessibility.html">Accessibility Statement</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="yr"></span> SEO Experts Denver. All rights reserved. Denver, Colorado.</p>
+      <p class="footer-powered">Strategy and support provided by <a href="https://www.eyetoad.com/" rel="dofollow" target="_blank">Eye To Ad Media</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', function(){ hdr.style.boxShadow = window.scrollY > 30 ? '0 4px 30px rgba(0,0,0,.35)' : '0 2px 16px rgba(0,0,0,.22)'; }, {passive:true});
+  var btn = document.getElementById('mobileBtn');
+  var nav = document.querySelector('.main-nav');
+  if(btn && nav){
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('mob-open');
+      btn.setAttribute('aria-expanded', open);
+      var s = btn.querySelectorAll('span');
+      s[0].style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
+      s[1].style.opacity   = open ? '0' : '';
+      s[2].style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+    });
+  }
+})();
+</script>
+<style>
+  @media(max-width:768px){
+    .main-nav.mob-open{ display:block!important; position:absolute; top:100%; left:0; right:0; background:var(--navy); border-top:1px solid rgba(255,255,255,.1); padding:1rem 1.5rem 1.5rem; z-index:99; }
+    .main-nav.mob-open .nav-list{ flex-direction:column; gap:.25rem; }
+    .main-nav.mob-open .nav-link{ padding:.75rem .5rem; border-bottom:1px solid rgba(255,255,255,.08); display:block; }
+    .main-nav.mob-open .dropdown{ position:static; display:block; box-shadow:none; border:none; background:rgba(255,255,255,.07); border-radius:8px; margin:.25rem 0; }
+    .main-nav.mob-open .dropdown li a{ color:rgba(255,255,255,.75); padding:.6rem 1rem; }
+    .main-nav.mob-open .dropdown li a:hover{ background:rgba(41,173,244,.2); color:#fff; }
+  }
+</style>
+
+</body>
+</html>
 
