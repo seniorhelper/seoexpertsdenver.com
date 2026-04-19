@@ -780,12 +780,8 @@
       display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
       padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 2rem;
     }
-    /* Footer logo — no white bg box, mix-blend-mode for transparency on dark bg */
     .foot-logo-wrap { margin-bottom: .75rem; display: inline-block; }
-    .foot-logo-img {
-      height: 80px; width: auto; display: block;
-      filter: brightness(0) invert(1);  /* renders as white/bright on dark bg */
-    }
+    .foot-logo-img { height: 90px; width: auto; display: block; }
     .foot-tagline { font-size: .86rem; color: rgba(255,255,255,.5); margin: 0 0 1rem; line-height: 1.6; }
     .foot-phone { color: var(--sky) !important; font-weight: 700; font-size: .97rem; }
     .foot-phone:hover { color: #fff !important; }
@@ -1571,6 +1567,7 @@
               class="foot-logo-img"
               width="180"
               height="52"
+              style="height:90px;width:auto;"
               loading="lazy"
             />
           </a>
