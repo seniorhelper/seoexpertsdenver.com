@@ -367,6 +367,7 @@
             <li><a href="/how-long-does-seo-take.html">How Long Does SEO Take?</a></li>
             <li><a href="/seo-cost-denver.html">SEO Cost in Denver</a></li>
             <li><a href="/seo-mistakes-denver.html">SEO Mistakes to Avoid</a></li>
+            <li><a href="/google-business-profile-denver.html">Google Business Profile Guide</a></li>
           </ul>
         </li>
         <li><a href="/denver-seo-services.html" class="nav-link active">Services</a></li>
@@ -675,7 +676,7 @@
       <div class="why-card">
         <div class="why-icon">⚡</div>
         <h3>Powered by Eye To Ad Media</h3>
-        <p>Strategy and execution backed by Eye To Ad Media — a proven digital marketing agency with deep expertise across SEO, AI search, and content strategy. <a href="https://www.eyetoad.com/" target="_blank" rel="dofollow">Learn more at eyetoad.com</a>.</p>
+        <p>Strategy and execution backed by Eye To Ad Media — a proven digital marketing agency with deep expertise across SEO, AI search, and content strategy. <span>Learn more at eyetoad.com</span>.</p>
       </div>
     </div>
   </div>
@@ -781,7 +782,11 @@
         </div>
       </div>
       <div class="form-card">
-        <form id="quoteForm" class="form-wrap" novalidate aria-label="Free SEO Audit Request">
+        <form id="quoteForm" class="form-wrap" novalidate aria-label="Free SEO Audit Request" method="post" data-fs data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=">
+<input type="hidden" name="_subject" value="New lead — seoexpertsdenver.com">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <div class="fg">
             <label for="user_name">Your Name <em>*</em></label>
             <input type="text" id="user_name" name="user_name" required placeholder="Jane Smith" autocomplete="name" />
@@ -804,7 +809,7 @@
           </div>
           <input type="hidden" name="source_site" value="seoexpertsdenver.com" />
           <button type="submit" class="btn btn-primary btn-full btn-lg">Send My Free Audit Request</button>
-          <div id="formStatus" aria-live="polite"></div>
+          <div id="formStatus" class="fs-status" role="status" aria-live="polite"></div>
         </form>
       </div>
     </div>
@@ -876,6 +881,7 @@
           <li><a href="/how-long-does-seo-take.html">How Long Does SEO Take?</a></li>
           <li><a href="/seo-cost-denver.html">SEO Cost in Denver</a></li>
           <li><a href="/seo-mistakes-denver.html">SEO Mistakes to Avoid</a></li>
+          <li><a href="/google-business-profile-denver.html">Google Business Profile Guide</a></li>
         </ul>
       </div>
       <div>
@@ -902,10 +908,8 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function(){
-  emailjs.init('alWutsHLG6c3h9P2j');
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   var hdr = document.getElementById('site-header');
@@ -931,21 +935,6 @@
     });
   });
 
-  var form = document.getElementById('quoteForm');
-  var status = document.getElementById('formStatus');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(!form.user_name.value.trim()||!form.user_phone.value.trim()||!form.user_zip.value.trim()){
-        status.textContent='Please fill in your name, phone, and ZIP.'; status.style.color='#e53e3e'; return;
-      }
-      var sub = form.querySelector('[type=submit]');
-      sub.disabled=true; sub.textContent='Sending…'; status.textContent=''; status.style.color='var(--teal)';
-      emailjs.sendForm('service_usimtub','template_5n0cskt',form)
-        .then(function(){ status.textContent='✓ Sent! We\'ll be in touch shortly.'; form.reset(); sub.textContent='Send My Free Audit Request'; sub.disabled=false; })
-        .catch(function(err){ status.textContent='Something went wrong. Please call 1-800-481-8638.'; status.style.color='#e53e3e'; sub.textContent='Send My Free Audit Request'; sub.disabled=false; console.error(err); });
-    });
-  }
 })();
 </script>
 <style>
@@ -959,5 +948,33 @@
   }
 </style>
 
+<script>
+/* lead forms: FormSubmit AJAX, address assembled at runtime */
+(function(){
+  var t0=Date.now();
+  function addr(el){return atob(el.getAttribute('data-a'))+String.fromCharCode(64)+atob(el.getAttribute('data-b'));}
+  document.querySelectorAll('a.eml').forEach(function(a){var e=addr(a);a.href='mailto:'+e;if(!a.textContent.trim())a.textContent=e;});
+  document.querySelectorAll('form[data-fs]').forEach(function(f){
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var st=f.querySelector('.fs-status');
+      if(!st){st=document.createElement('p');st.className='fs-status';st.setAttribute('role','status');st.setAttribute('aria-live','polite');st.style.marginTop='10px';f.appendChild(st);}
+      var hp=f.querySelector('[name="_honey"]');
+      if(hp&&hp.value){return;}
+      if(Date.now()-t0<3500){st.textContent='Give the form a moment, then send again.';return;}
+      var bad=[].filter.call(f.querySelectorAll('[required]'),function(i){return !String(i.value||'').trim();});
+      if(bad.length){st.textContent='Please fill in the required fields.';bad[0].focus();return;}
+      var btn=f.querySelector('[type="submit"],button:not([type])');
+      if(btn){btn.disabled=true;}
+      st.textContent='Sending...';
+      fetch('https://formsubmit.co/ajax/'+addr(f),{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)})
+        .then(function(r){if(!r.ok){throw new Error('http');}return r.json();})
+        .then(function(j){if(j&&(j.success===false||j.success==='false')){throw new Error('fs');}st.textContent="Sent. We'll get back to you shortly.";f.reset();})
+        .catch(function(){st.textContent='That did not go through. Please call 1-800-481-8638.';})
+        .then(function(){if(btn){btn.disabled=false;}});
+    });
+  });
+})();
+</script>
 </body>
 </html>
