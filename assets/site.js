@@ -46,8 +46,8 @@
       var st=f.querySelector('.fs-status');
       st.className='fs-status';
       var hp=f.querySelector('[name="_honey"]');
-      if(hp&&hp.value){return;}
-      if(Date.now()-t0<3000){st.textContent='One moment, then press send again.';return;}
+      if(hp&&hp.value){st.textContent='Thanks, your message was sent.';st.classList.add('ok');f.reset();return;}
+      if(Date.now()-t0<3000){st.textContent='One moment, please. Wait a few seconds, then press send again.';st.classList.add('err');return;}
       var bad=[].filter.call(f.querySelectorAll('[required]'),function(i){return !String(i.value||'').trim();});
       if(bad.length){st.textContent='Please fill in the fields marked with a star.';st.classList.add('err');bad[0].focus();return;}
       var em=f.querySelector('[type="email"]');
@@ -59,7 +59,7 @@
         .then(function(r){if(!r.ok){throw new Error('http');}return r.json();})
         .then(function(j){if(j&&(j.success===false||j.success==='false')){throw new Error('fs');}
           st.textContent='Thanks, your message was sent. A person will get back to you soon.';st.classList.add('ok');f.reset();})
-        .catch(function(){st.textContent='That did not go through. Please call 1-800-481-8638 instead.';st.classList.add('err');})
+        .catch(function(){st.innerHTML='That did not go through. Please try again, or call <a href="tel:18004818638">1-800-481-8638</a>.';st.classList.add('err');})
         .then(function(){if(btn){btn.disabled=false;}});
     });
   });
