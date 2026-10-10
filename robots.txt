@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.seoexpertsdenver.com/sitemap.xml
+Sitemap: https://seoexpertsdenver.com/sitemap.xml
